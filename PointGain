@@ -1,0 +1,19 @@
+local debounce = false
+	function onTouched(part)
+		    local h = part.Parent:findFirstChild("Humanoid")
+		    if (h~=nil) then
+			        if debounce == false then
+				            debounce = true
+				            local thisplr = game.Players:FindFirstChild(h.Parent.Name)
+				            local stats = thisplr.leaderstats
+				            local score = stats.Points-- change this to what the thing is called now, if you changed the name of Coi
+				            score.Value = score.Value + 1 -- change this to the number of coins they get if you don't want it to be random. You didn't specify what you wanted.
+							wait(1)
+							debounce = false
+				        end
+			    end
+		end
+while wait() do
+	script.Parent.Touched:connect(onTouched)
+end
+	
